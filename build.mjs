@@ -3,8 +3,8 @@ import path from 'node:path';
 import vm from 'node:vm';
 import {createHash} from 'node:crypto';
 const root=path.resolve('dist'),assets={};
-const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.txt':'text/plain; charset=utf-8','.json':'application/json; charset=utf-8'};
-function walk(dir){for(const ent of readdirSync(dir,{withFileTypes:true})){if(['server','.openai'].includes(ent.name))continue;const p=path.join(dir,ent.name);if(ent.isDirectory())walk(p);else{const rel='/'+path.relative(root,p).split(path.sep).join('/');assets[rel]={body:readFileSync(p,'utf8'),type:types[path.extname(p)]||'application/octet-stream'}}}}
+const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.txt':'text/plain; charset=utf-8','.json':'application/json; charset=utf-8','.ttf':'font/ttf'};
+function walk(dir){for(const ent of readdirSync(dir,{withFileTypes:true})){if(['server','.openai'].includes(ent.name))continue;const p=path.join(dir,ent.name);if(ent.isDirectory())walk(p);else{const rel='/'+path.relative(root,p).split(path.sep).join('/');const ext=path.extname(p),binary=ext==='.ttf';assets[rel]={body:readFileSync(p,binary?'base64':'utf8'),type:types[ext]||'application/octet-stream',...(binary?{encoding:'base64'}:{})}}}}
 const indexFile=path.join(root,'index.html');let html=readFileSync(indexFile,'utf8');html=html.replace(/(src|href)="([^"?]+\.(?:js|css))(?:\?[^"]*)?"/g,(_,attr,file)=>attr+'="'+file+'?v='+createHash('sha256').update(readFileSync(path.join(root,file))).digest('hex').slice(0,10)+'"');writeFileSync(indexFile,html);
 walk(root);const c={window:{}};vm.createContext(c);vm.runInContext(readFileSync('dist/prep-tasks.js','utf8'),c);
 const ids=c.window.PREP_TASKS.map(t=>t.id);

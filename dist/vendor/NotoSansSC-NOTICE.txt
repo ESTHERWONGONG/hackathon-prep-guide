@@ -1,0 +1,17 @@
+Noto Sans SC Regular — static weight-400 instance
+
+Original font: Noto Sans SC, version 2.004
+Copyright © 2014–2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+License: SIL Open Font License, Version 1.1. See NotoSansSC-OFL.txt.
+
+Official source:
+https://raw.githubusercontent.com/notofonts/noto-cjk/Sans2.004/Sans/Variable/TTF/Subset/NotoSansSC-VF.ttf
+
+This copy was generated with fontTools 4.66.1 by pinning the weight axis to 400.
+The complete upstream SC character mapping and glyph set were retained.
+No endorsement by the original authors is implied.
+
+Source SHA-256:
+d68bafcb48a2707749396aa12bbbd833cb70401f3a9a689fd2902c7e0d295964
+Static font SHA-256:
+bcf88833621b779ec361a105332a26ff1d20dbf0cf0f1ca39181630963375d7e

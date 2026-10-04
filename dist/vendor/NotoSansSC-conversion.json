@@ -1,0 +1,14 @@
+{
+  "source": "https://raw.githubusercontent.com/notofonts/noto-cjk/Sans2.004/Sans/Variable/TTF/Subset/NotoSansSC-VF.ttf",
+  "source_version": "2.004",
+  "fonttools_version": "4.66.1",
+  "weight": 400,
+  "bytes": 10596232,
+  "sha256": "bcf88833621b779ec361a105332a26ff1d20dbf0cf0f1ca39181630963375d7e",
+  "unicode_codepoints": 30890,
+  "glyph_count": 31036,
+  "unicode_cmap_tables": 5,
+  "full_character_map_preserved": true,
+  "all_glyph_ids_preserved": true,
+  "variable_axes_removed": true
+}
