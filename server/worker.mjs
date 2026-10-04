@@ -18,6 +18,8 @@ export function validatePatch(patch,taskIds){
  if(own(patch,'done')&&(!object(patch.done)||Object.entries(patch.done).some(([k,v])=>!taskIds.includes(k)||typeof v!=='boolean')))throw Error('无效任务');
  return patch;
 }
+function assetBody(asset){if(asset.encoding!=='base64')return asset.body;const raw=atob(asset.body),bytes=new Uint8Array(raw.length);for(let i=0;i<raw.length;i++)bytes[i]=raw.charCodeAt(i);return bytes}
+
 export function createWorker(assets,taskIds){
  return {async fetch(request,env){
   const url=new URL(request.url);
@@ -47,6 +49,6 @@ export function createWorker(assets,taskIds){
   if(!['GET','HEAD'].includes(request.method))return new Response('Method not allowed',{status:405});
   const key=url.pathname==='/'?'/index.html':url.pathname;
   const asset=assets[key];if(!asset)return new Response('Not found',{status:404});
-  return new Response(request.method==='HEAD'?null:asset.encoding==='base64'?Uint8Array.from(atob(asset.body),c=>c.charCodeAt(0)):asset.body,{headers:{'content-type':asset.type,'cache-control':'no-cache','x-content-type-options':'nosniff'}});
+  return new Response(request.method==='HEAD'?null:assetBody(asset),{headers:{'content-type':asset.type,'cache-control':'no-cache','x-content-type-options':'nosniff'}});
  }};
 }
