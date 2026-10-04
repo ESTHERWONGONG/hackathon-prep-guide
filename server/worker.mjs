@@ -2,7 +2,8 @@ const json=(data,status=200)=>new Response(JSON.stringify(data),{status,headers:
 const own=(o,k)=>Object.prototype.hasOwnProperty.call(o,k);
 function object(x){return x!==null&&typeof x==='object'&&!Array.isArray(x)}
 export function validatePatch(patch,taskIds){
- if(!object(patch)||Object.keys(patch).length===0||Object.keys(patch).some(k=>!['durationHours','startLocal','plan','done','scoringPreset'].includes(k)))throw Error('无效计划字段');
+ if(!object(patch)||Object.keys(patch).length===0||Object.keys(patch).some(k=>!['durationHours','startLocal','plan','done','scoringPreset','deliveryMode'].includes(k)))throw Error('无效计划字段');
+ if(own(patch,'deliveryMode')&&!['online','onsite','hybrid'].includes(patch.deliveryMode))throw Error('无效活动形式');
  if(own(patch,'scoringPreset')&&![60,70,50].includes(patch.scoringPreset))throw Error('无效评分方案');
  if(own(patch,'durationHours')&&![24,48,72,96].includes(patch.durationHours))throw Error('无效周期');
  if(own(patch,'startLocal')){
