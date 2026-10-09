@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "billingEnabled": false,
+  "features": {
+    "chapter.overview": {
+      "label": "赛制总览",
+      "access": "public"
+    },
+    "chapter.journey": {
+      "label": "报名与全流程",
+      "access": "member"
+    },
+    "chapter.tracks": {
+      "label": "赛道设置",
+      "access": "member"
+    },
+    "chapter.build": {
+      "label": "命题 · 二开 · 承诺",
+      "access": "member"
+    },
+    "chapter.demo": {
+      "label": "路演与抽签",
+      "access": "member"
+    },
+    "chapter.scoring": {
+      "label": "评分与公正",
+      "access": "member"
+    },
+    "chapter.awards": {
+      "label": "奖项设置",
+      "access": "member"
+    },
+    "chapter.templates": {
+      "label": "问卷与模板",
+      "access": "member"
+    },
+    "chapter.archive": {
+      "label": "作品上线与回顾",
+      "access": "member"
+    },
+    "chapter.operations": {
+      "label": "人员与风险预案",
+      "access": "member"
+    },
+    "chapter.sources": {
+      "label": "案例与参考来源",
+      "access": "public"
+    },
+    "chapter.network-plan": {
+      "label": "网络与平台",
+      "access": "member"
+    },
+    "chapter.network-drill": {
+      "label": "联调与备援",
+      "access": "member"
+    },
+    "chapter.sponsor-plan": {
+      "label": "合作方案",
+      "access": "member"
+    },
+    "chapter.sponsor-delivery": {
+      "label": "权益交付与复盘",
+      "access": "member"
+    },
+    "chapter.catering-plan": {
+      "label": "人数与餐食",
+      "access": "member"
+    },
+    "chapter.catering-service": {
+      "label": "配送与现场供餐",
+      "access": "member"
+    },
+    "chapter.event-staff": {
+      "label": "人员与分工",
+      "access": "member"
+    },
+    "chapter.event-run": {
+      "label": "执行与应急",
+      "access": "member"
+    },
+    "chapter.venue-plan": {
+      "label": "勘场与容量",
+      "access": "member"
+    },
+    "chapter.venue-ready": {
+      "label": "布置与验收",
+      "access": "member"
+    },
+    "plan.save": {
+      "label": "保存筹备计划",
+      "access": "member"
+    },
+    "plan.export": {
+      "label": "生成 Word / PDF 方案",
+      "access": "member"
+    },
+    "templates.download": {
+      "label": "复制与下载表单模板",
+      "access": "member"
+    }
+  }
+}
